@@ -1,8 +1,11 @@
 # 30c3-slides
 
-Currently we hav 8515 slides from all 30c3 video streams: https://github.com/MichaelKreil/30c3-slides/tree/master/slides_jpeg
+Currently we have 8515 presentation slides from all 30c3 video streams. Every slide has a resolution of 1920x1080: https://github.com/MichaelKreil/30c3-slides/tree/master/slides_jpeg
 
-![Image](https://github.com/MichaelKreil/30c3-slides/blob/master/overview/all_slides_thumb.png?raw=true)
+Overview of all slides (from top to bottom: Saal1, Saal2, Saal6, SaalG):
+[<img src="https://github.com/MichaelKreil/30c3-slides/blob/master/overview/all_slides_thumb.png?raw=true">](https://github.com/MichaelKreil/30c3-slides/blob/master/overview/all_slides.png?raw=true)
+
+
 
 ## 1. What I need
 
@@ -11,11 +14,11 @@ Is there any way to match the found slides to the corresponding talk (e.g. by da
 Problem is that because of delays we don't know which talk was exactly at which time.
 Also the filenames of the streams seem to be incorrect.
 
-Does the information exists, at which exact time each talk started?
+Does the information exists, at which exact time each talk started/ended?
 
 ## 2. Current state
 
-Now I have a lot of png files of every automatically found slide. Every file has a filename containing the room (e.g. `saal1`) and the time (e.g. `2013-12-27T20-19-34`) when it was shown.
+Now I have a lot of jpeg files of every automatically found slide. Every file has a filename containing the room (e.g. `saal1`) and the time (e.g. `2013-12-27T20-19-34`) when it was shown.
 
 ## 3. What I did
 
