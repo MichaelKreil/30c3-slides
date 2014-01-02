@@ -60,7 +60,8 @@ rooms.forEach(function (room) {
 
 		var c = 1;
 		for (var i = table.length-1; i >= 0; i--) {
-			if (table[i][0]) {
+			if (table[i][0] || i == 0) {
+				if (!table[i][0]) table[i][0] = '';
 				table[i][0] = '<td rowspan="'+c+'" class="title">'+table[i][0]+'</td>';
 				c = 1;
 			} else {
@@ -77,10 +78,11 @@ rooms.forEach(function (room) {
 			'<!DOCTYPE html>',
 			'<html lang="en">',
 			'<head>',
+			'<title>Slides from 30C3 - Day '+dayNo+' - '+roomName+'</title>',
 			'<link rel="stylesheet" type="text/css" media="screen" href="style/main.css">',
 			'</head>',
 			'<body>',
-			'<h1>30C3 - Day '+dayNo+' - '+roomName+'</h1>',
+			'<h1>Slides from 30C3 - Day '+dayNo+' - '+roomName+'</h1>',
 			'<table class="timetable">',
 			table.join('\n'),
 			'</table>',
