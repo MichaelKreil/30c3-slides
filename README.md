@@ -1,6 +1,6 @@
 # 30c3-slides
 
-Extracting all slides from all 30c3 talks.
+8515 slides from all 30c3 streams: https://github.com/MichaelKreil/30c3-slides/tree/master/slides_jpeg
 
 ## 1. What I need
 
