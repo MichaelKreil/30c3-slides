@@ -1,6 +1,6 @@
 
 body {
-	background: #222;
+	background: #444;
 	color: #fff;
 	font-family: Helvetica, Arial, sans-serif;
 }
@@ -17,7 +17,7 @@ h1 {
 }
 
 .timetable td {
-	height: 46px;
+	height: 51px;
 	border-top: 1px solid #000;
 	padding: 0;
 	margin: 0;
@@ -40,8 +40,23 @@ h1 {
 	color: #fff;
 }
 
+.timetable .title {
+	font-size:12px;
+	vertical-align: top;
+	width: 200px;
+	padding: 10px;
+}
+
+.timetable .title .speakers {
+	color: #888;
+}
+
 .timetable a {
 	text-decoration: none;
+	border: none;
+	padding: 0;
+	margin: 0;
+	font-size: 0;
 }
 
 .timetable img {

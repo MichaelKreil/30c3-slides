@@ -1,15 +1,14 @@
 var fs = require('fs');
 
-var rooms = ['saal1'];
+var rooms = ['saal1', 'saal2', 'saal6', 'saalg'];
 var days = []
 
 var schedule = JSON.parse(fs.readFileSync('schedule.json', 'utf8'));
 schedule = schedule.schedule.conference.days;
 
-console.log(schedule);
-
 rooms.forEach(function (room) {
 	var slides = findSlides(room);
+
 	slides.forEach(function (day, dayNo) {
 		day = day.sort(function (a,b) {
 			return a.seconds-b.seconds;
@@ -37,26 +36,45 @@ rooms.forEach(function (room) {
 			var time = h+':'+m;
 
 			table[t] = [
-				'',
+				false,
 				'<td class="time">'+time+'</td>',
 				'<td>'+thumbs.join('')+'</td>'
 			];
+		}
+
+		var roomName = 'Saal '+room.substr(4,1).toUpperCase();
+		var plan = schedule[dayNo-1];
+		plan = plan.rooms[roomName];
+
+		plan.forEach(function (talk, index) {
+			var seconds = (new Date(talk.date)).getTime();
+			seconds = (seconds/1000 - 1388052000 - dayNo*86400);
+			var slot = Math.floor(seconds/600);
+
+			var speakers = talk.persons.map(function (person) {
+				return person.full_public_name;
+			}).join(', ')
+
+			table[slot][0] = talk.title+'<br><span class="speakers">('+speakers+')</span>';
+		});
+
+		var c = 1;
+		for (var i = table.length-1; i >= 0; i--) {
+			if (table[i][0]) {
+				table[i][0] = '<td rowspan="'+c+'" class="title">'+table[i][0]+'</td>';
+				c = 1;
+			} else {
+				table[i][0] = '';
+				c++; // nothing to do with the programming language!
+			}
 		}
 
 		table = table.map(function (row, index) {
 			return '<tr'+(index%6 ? '' : ' class="highlight"')+'>'+row.join('')+'</tr>';
 		})
 
-		var roomName = 'Saal '+room.substr(4,1);
-		var plan = schedule[dayNo-1];
-		plan = plan.rooms[roomName];
-
-		/*
-		console.log(plan);
-		process.exit();
-		*/
-
 		var html = [
+			'<!DOCTYPE html>',
 			'<html lang="en">',
 			'<head>',
 			'<link rel="stylesheet" type="text/css" media="screen" href="style/main.css">',
