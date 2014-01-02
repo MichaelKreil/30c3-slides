@@ -1,6 +1,8 @@
 # 30c3-slides
 
-8515 slides from all 30c3 streams: https://github.com/MichaelKreil/30c3-slides/tree/master/slides_jpeg
+Currently we hav 8515 slides from all 30c3 video streams: https://github.com/MichaelKreil/30c3-slides/tree/master/slides_jpeg
+
+![Image](https://github.com/MichaelKreil/30c3-slides/blob/master/overview/all_slides_thumb.png?raw=true)
 
 ## 1. What I need
 
