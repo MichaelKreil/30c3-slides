@@ -18,9 +18,9 @@ files.forEach(function (file) {
 })
 //console.log(files);
 
-fs.writeFileSync('./frames/commands1.sh', commands1.join('\n'), 'utf8');
-fs.writeFileSync('./frames/commands2.sh', commands2.join('\n'), 'utf8');
-fs.writeFileSync('./frames/commands3.sh', commands3.join('\n'), 'utf8');
+fs.writeFileSync('./commands1.sh', commands1.join('\n'), 'utf8');
+fs.writeFileSync('./commands2.sh', commands2.join('\n'), 'utf8');
+fs.writeFileSync('./commands3.sh', commands3.join('\n'), 'utf8');
 
 
 function scan(name) {
@@ -129,8 +129,8 @@ function scan(name) {
 		var start = ((slide.i1-slide.i0)/(imgPerSlide+1) + slide.i0)/25;
 		var fps = (25*(imgPerSlide+1)/(slide.i1-slide.i0)).toFixed(3);
 
-		commands1.push('ffmpeg -ss '+start+' -i "'+mp4File+'" -f image2 -vf fps=fps='+fps+' -vframes 5 "'+slideName+'-%d.png"');
-		commands2.push('convert '+slideName+'-?.png -evaluate-sequence mean '+slideName+'.png');
+		commands1.push('ffmpeg -ss '+start+' -i "'+mp4File+'" -f image2 -vf fps=fps='+fps+' -vframes 5 "frames/'+slideName+'-%d.png"');
+		commands2.push('convert frames/'+slideName+'-?.png -evaluate-sequence mean slides/'+slideName+'.png');
 		commands3.push('rm '+slideName+'-*');
 	}
 }
